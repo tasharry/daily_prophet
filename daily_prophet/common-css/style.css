@@ -1,0 +1,21 @@
+.carousel-inner img {
+    margin: auto;
+}
+.carousel-control-prev{
+    padding-left: 13%;
+}
+.carousel-control-next{
+    padding-right: 13%;
+}
+
+.ln{
+    padding: 2%;
+}
+.list-group{
+    width:30%;
+    padding: 2%;
+}
+
+.carousel-item  h5 {
+
+}

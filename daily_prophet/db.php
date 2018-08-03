@@ -1,0 +1,34 @@
+<?php
+
+$db = new SQLite3('articles.sqlite', SQLITE3_OPEN_CREATE | SQLITE3_OPEN_READWRITE);
+
+$db->query('CREATE TABLE IF NOT EXISTS "categories" (
+    "id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
+    "title" VARCHAR NOT NULL
+)');
+
+$db->query('CREATE TABLE IF NOT EXISTS "articles" (
+    "id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
+    "time" DATETIME DEFAULT CURRENT_TIMESTAMP NOT NULL,
+    "title" VARCHAR NOT NULL,
+    "text" VARCHAR NOT NULL,
+    "category" VARCHAR NOT NULL
+)');
+
+$db->query('CREATE TABLE IF NOT EXISTS "users" (
+    "id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
+    "name" VARCHAR NOT NULL,
+    "password" VARCHAR NOT NULL,
+    "is_admin" BOOLEAN NOT NULL
+)');
+
+$db->query('CREATE TABLE IF NOT EXISTS "colors" (
+    "id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
+    "element" VARCHAR NULL,
+    "color" VARCHAR NOT NULL
+)');
+
+$db->query('CREATE TABLE IF NOT EXISTS "available_colors" (
+    "id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
+    "color" VARCHAR UNIQUE NOT NULL
+)');
